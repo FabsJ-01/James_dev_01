@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -18,7 +19,7 @@ class _RegisterPageState extends State<RegisterPage> {
   String? selectedRole;
   bool isPasswordVisible = false;
 
-  final List<String> genders = ['Male', 'Female'];
+  final List<String> genders = ['Male', 'Female'];  
   final List<String> roles = ['Student', 'Faculty member', 'Utility', 'Other'];
 
   String? validatePassword(String value) {
@@ -69,7 +70,12 @@ class _RegisterPageState extends State<RegisterPage> {
         'role': selectedRole,
         'createdAt': FieldValue.serverTimestamp(),
       });
-
+// C. MAGDAGDAG NG INITIAL INTAKE SA REALTIME DATABASE (DITO NA!)
+      final String uid = userCredential.user!.uid;
+      await FirebaseDatabase.instance.ref("users/$uid").set({
+        'intake': 0,
+      });
+      
       // Tanggalin ang Loading Dialog
       if (mounted) Navigator.pop(context);
 
@@ -180,4 +186,4 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
-}
+}   
