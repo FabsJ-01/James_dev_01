@@ -15,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+-----------------------------------------------------------
+phase 1: @paul dagdagan mo ito sa system mo sa app lagyan mo yung dashboard ng per user may mga (profile Icon) Edit profile pwede nya edit yung password, Profile picture, makikita din doon personal simple info like age, Tapos doon mo lagay yung logout button. para hindi pangit tignan sa sa dashboard.
+
+!!!(kailagnan may logic yung mapapalitan talaga yung pass ng user nayun, edit pass- new pass/retype new pass the submit button.) !!
